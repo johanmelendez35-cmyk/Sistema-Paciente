@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace SistemaPacientes;
+namespace PatientSystem;
 
 public class ApplicationDbContext : DbContext
 {
@@ -8,11 +8,11 @@ public class ApplicationDbContext : DbContext
     {
         optionsBuilder.UseSqlServer(
             "Server=localhost\\SQLEXPRESS;" +
-            "Database=RegistroPacientesDB;" +
+            "Database=ClinicaCalderonDB;" +
             "Trusted_Connection=True;" +
             "MultipleActiveResultSets=true;" +
             "TrustServerCertificate=True;");
     }
 
-    public DbSet<Paciente> Pacientes { get; set; }
+    public DbSet<Patient> Patients { get; set; }
 }

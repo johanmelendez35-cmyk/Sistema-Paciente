@@ -1,46 +1,45 @@
-using SistemaPacientes;
+using PatientSystem;
 
-
-bool continuar = true;
+bool keepRunning = true;
 
 DisplayHeader();
 
-while (continuar)
+while (keepRunning)
 {
     DisplayMenu();
 
-    int opcionSeleccionada = PacienteHelper.LeerEntero("Seleccione una opción: ", 1, 7);
+    int selectedOption = PatientHelper.ReadInt("Seleccione una opción: ", 1, 7);
     Console.WriteLine();
 
-    switch (opcionSeleccionada)
+    switch (selectedOption)
     {
         case 1:
-            PacienteHelper.AgregarPaciente();
+            PatientHelper.AddPatient();
             break;
         case 2:
-            PacienteHelper.ListarPacientes();
+            PatientHelper.ListPatients();
             break;
         case 3:
-            PacienteHelper.BuscarPaciente();
+            PatientHelper.SearchPatient();
             break;
         case 4:
-            PacienteHelper.EditarPaciente();
+            PatientHelper.EditPatient();
             break;
         case 5:
-            PacienteHelper.EliminarPaciente();
+            PatientHelper.DeletePatient();
             break;
         case 6:
-            PacienteHelper.MostrarEstadisticas();
+            PatientHelper.ShowStatistics();
             break;
         case 7:
-            continuar = false;
-            Console.WriteLine("Cerrando la aplicación. ¡Hasta luego!");
+            keepRunning = false;
+            Console.WriteLine("Cerrando la aplicación.");
             break;
     }
 
-    if (continuar)
+    if (keepRunning)
     {
-        Console.WriteLine("\nPresione ENTER para continuar...");
+        Console.WriteLine("\nPresione ENTER para continua.");
         Console.ReadLine();
         Console.Clear();
     }
@@ -49,7 +48,7 @@ while (continuar)
 void DisplayHeader()
 {
     Console.WriteLine("=========================================");
-    Console.WriteLine("   SISTEMA DE REGISTRO DE PACIENTES");
+    Console.WriteLine("   Clinica Calderón - Sistema de Pacientes");
     Console.WriteLine("=========================================");
 }
 
